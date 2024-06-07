@@ -1,5 +1,5 @@
 " =============================================================================
-" CONFIGURACIONES GENERALES ⚙️
+" CONFIGURACIONES GENERALES DE VIM ⚙️
 " =============================================================================
 
 "  reconoció la necesidad de números de línea! 🔢
