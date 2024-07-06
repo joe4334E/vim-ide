@@ -3,3 +3,5 @@ autoload/
 colors/
 pack/
 plugged/
+.gitignore
+
