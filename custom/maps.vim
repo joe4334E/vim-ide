@@ -18,3 +18,7 @@ nnoremap <leader>r :RandomColorScheme<CR>
 
 let g:floaterm_keymap_new = '<leader>ft'
 let g:floaterm_keymap_toggle = '<leader>t'
+
+
+" Pasar a modo editor de tablas en makdown con '<space>y'
+nnoremap <leader>y :TableModeEnable<CR>
