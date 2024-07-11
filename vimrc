@@ -1,5 +1,5 @@
 " =============================================================================
-" CONFIGURACIONES GENERALES DE VIM ⚙️
+" CONFIGURACIONES GENERALES ⚙️
 " =============================================================================
 
 "  reconoció la necesidad de números de línea! 🔢
@@ -52,6 +52,15 @@ set noshowmode
 syntax on
 syntax enable
 
+" =============================================================================
+"Sources  🎉
+" =============================================================================
+
+
+" Source all plugin configurations in ~/.vim/plugin_configs/
+for config in split(glob('~/.vim/custom/plugin-conf/*.vim'), '\n')
+    execute 'source' config
+endfor
 " Plugins cargados, para ampliar las funcionalidades. 🔌
 source ~/.vim/custom/plugins.vim
 
@@ -66,7 +75,7 @@ source ~/.vim/custom/maps.vim
 " =============================================================================
 
 " Esquema de colores personalizado, para una experiencia visual agradable. 🎨
-colorscheme chlordane
+colorscheme pride
 
 " Resaltar coincidencias de búsqueda, para encontrar lo que necesitas rápidamente. 🔍
 set hlsearch
@@ -88,6 +97,12 @@ set smartcase
 autocmd QuitPre * FloatermKill
 
 " =============================================================================
-" EXTRAS DIVERTIDOS 🎉
+"Autocomandos  🎉
 " =============================================================================
 "autocmd VimEnter * :echo system("fortune")
+"autocmd BufReadDir ~/home/ale/books/* setlocal tablemodeenable
+
+" Autocomandos para sintaxis y semantica 
+
+
+

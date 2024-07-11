@@ -1,7 +1,9 @@
-" Configurar la tecla de espacio como líder
+"Configurar la tecla de espacio como líder
 let mapleader = "\<Space>"
 
 nnoremap <C-s> :w<CR>
+nnoremap <C-q> :q<CR>
+
 
 " Abrir y cerrar NERDTree con <space>e
 nnoremap <leader>e :NERDTreeToggle<CR>

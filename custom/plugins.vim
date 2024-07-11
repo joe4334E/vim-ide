@@ -8,14 +8,14 @@ Plug 'xolox/vim-misc' "Complemento con varias funciones en vim
 "++++++++++++++++++++++++++++++++++++"
 
 Plug 'yggdroot/indentline'   		" Indentacion de linea	
-
+ Plug 'itchyny/lightline.vim'
 "++++++++++++++++++++++++++++++++++++"	
 "	VISUALIZACION
 "++++++++++++++++++++++++++++++++++++"
 
 Plug 'ryanoasis/vim-devicons'		" Iconos para vim
 Plug 'preservim/tagbar'			" Barra de Etiquetas para vim
-
+Plug 'segeljakt/vim-silicon'  		" Toma capturas de fragmentos de codigo 
 "++++++++++++++++++++++++++++++++++++"	
 "	PROGRAMACION
 "++++++++++++++++++++++++++++++++++++"

@@ -1,0 +1,10 @@
+{
+  "auto_install": true,
+  "coc.preferences": {
+    "autoinstall.extensions": true
+  },
+  "suggest.noselect": false,
+  "suggest.triggerUpdateOnInsert": true,
+  "suggest.showIcons": true
+}
+
