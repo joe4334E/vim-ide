@@ -5,6 +5,7 @@ nnoremap <C-s> :w<CR>
 nnoremap <C-q> :q<CR>
 
 
+nnoremap <C-p> :FZF<CR>
 " Abrir y cerrar NERDTree con <space>e
 nnoremap <leader>e :NERDTreeToggle<CR>
 " Abrir y cerrar TAGBAR con <space>a

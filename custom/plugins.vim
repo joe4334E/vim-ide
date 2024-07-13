@@ -22,6 +22,7 @@ Plug 'segeljakt/vim-silicon'  		" Toma capturas de fragmentos de codigo
 
 Plug 'mhinz/vim-startify'  " Interfaz de usuario moderna y personalzable en vim.
 Plug 'honza/vim-snippets'  "Atajos de teclado para trozos de codigo
+Plug 'sheerun/vim-polyglot'
 
 "++++++++++++++++++++++++++++++++++++"
 "autocomplete
