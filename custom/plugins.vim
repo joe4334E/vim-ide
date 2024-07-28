@@ -9,6 +9,7 @@ Plug 'xolox/vim-misc' "Complemento con varias funciones en vim
 
 Plug 'yggdroot/indentline'   		" Indentacion de linea	
  Plug 'itchyny/lightline.vim'
+ Plug 'turbio/bracey.vim'
 "++++++++++++++++++++++++++++++++++++"	
 "	VISUALIZACION
 "++++++++++++++++++++++++++++++++++++"
