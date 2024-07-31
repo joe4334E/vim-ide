@@ -41,6 +41,9 @@ Plug 'jiangmiao/auto-pairs' 	" Insercion automatica de pares de caracteres (como
 Plug 'voldikss/vim-floaterm'  "Terminal Flotante para vim.
 Plug 'SirVer/ultisnips'			"Complemento para crear y gestionar fragmentos de codigo personalizados para vim.
 Plug 'dhruvasagar/vim-table-mode'	" Complemento para habilitar vim en modo de tablas para markdown
+Plug 'pangloss/vim-javascript'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'peitalin/vim-jsx-typescript'
 
 
 "++++++++++++++++++++++++++++++++++++"	

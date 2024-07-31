@@ -120,3 +120,26 @@ let g:startify_custom_footer = []
 
 " No mostrar buffer vacío ni la opción de 'quit'
 "let g:startify_disable_at_vimenter = 1
+
+
+" =============================================================================
+" SILICON
+" =============================================================================
+  let g:silicon = {
+      \   'theme':              'Dracula',
+      \   'font':                  'Iosevka',
+      \   'background':         '#AAAAFF',
+      \   'shadow-color':       '#555555',
+      \   'line-pad':                   2,
+      \   'pad-horiz':                 80,
+      \   'pad-vert':                 100,
+      \   'shadow-blur-radius':         0,
+      \   'shadow-offset-x':            0,
+      \   'shadow-offset-y':            0,
+      \   'line-number':           v:true,
+      \   'round-corner':          v:true,
+      \   'window-controls':       v:true,
+      \ }
+
+let g:silicon['output'] = '~/Imágenes/code/silicon-{time:%Y-%m-%d-%H%M%S}.png'
+

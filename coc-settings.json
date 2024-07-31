@@ -5,6 +5,7 @@
   },
   "suggest.noselect": false,
   "suggest.triggerUpdateOnInsert": true,
-  "suggest.showIcons": true
+  "suggest.showIcons": true,
+  "svelte.enable-ts-plugin": false
 }
 
