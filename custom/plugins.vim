@@ -33,6 +33,7 @@ Plug 'prabirshrestha/vim-lsp' 	"Integracion con LSP(protocolo del servidor de le
 Plug 'mattn/vim-lsp-settings' 	"Configuracion para vim-lsp
 Plug 'neoclide/coc.nvim', {'branch': 'release'}	"Completado automatico y otras funciones avanzadas para vim 
 
+
 "++++++++++++++++++++++++++++++++++++"	
 "	PRODUCTIVIDAD
 "++++++++++++++++++++++++++++++++++++"	
@@ -40,6 +41,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}	"Completado automatico y otras f
 Plug 'jiangmiao/auto-pairs' 	" Insercion automatica de pares de caracteres (como parentesis y corchetes)
 Plug 'voldikss/vim-floaterm'  "Terminal Flotante para vim.
 Plug 'SirVer/ultisnips'			"Complemento para crear y gestionar fragmentos de codigo personalizados para vim.
+Plug 'mlaursen/vim-react-snippets'
 Plug 'dhruvasagar/vim-table-mode'	" Complemento para habilitar vim en modo de tablas para markdown
 Plug 'pangloss/vim-javascript'
 Plug 'peitalin/vim-jsx-typescript'
