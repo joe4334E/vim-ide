@@ -32,7 +32,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'prabirshrestha/vim-lsp' 	"Integracion con LSP(protocolo del servidor de lenguaje) en vim.
 Plug 'mattn/vim-lsp-settings' 	"Configuracion para vim-lsp
 Plug 'neoclide/coc.nvim', {'branch': 'release'}	"Completado automatico y otras funciones avanzadas para vim 
-
+Plug 'prabirshrestha/asyncomplete.vim' 	"Integracion con LSP(protocolo del servidor de lenguaje) en vim.
+Plug 'prabirshrestha/asyncomplete-lsp.vim' 	"Integracion con LSP(protocolo del servidor de lenguaje) en vim.
 
 "++++++++++++++++++++++++++++++++++++"	
 "	PRODUCTIVIDAD
@@ -46,7 +47,6 @@ Plug 'dhruvasagar/vim-table-mode'	" Complemento para habilitar vim en modo de ta
 Plug 'pangloss/vim-javascript'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'peitalin/vim-jsx-typescript'
-
 
 "++++++++++++++++++++++++++++++++++++"	
 "	COMPLEMENTOS Y DEPURADORES

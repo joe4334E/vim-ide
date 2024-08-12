@@ -6,6 +6,10 @@
   "suggest.noselect": false,
   "suggest.triggerUpdateOnInsert": true,
   "suggest.showIcons": true,
-  "svelte.enable-ts-plugin": false
+  "svelte.enable-ts-plugin": false,
+  "tabnine.enabled": true, // Habilita TabNine
+  "tabnine.experimentalAutoImports": true, // Opcional: habilita importaciones automáticas experimentales
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "python", "html", "css"],
+  "coc.preferences.autoSuggest": true
 }
 
