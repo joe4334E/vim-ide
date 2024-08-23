@@ -28,6 +28,8 @@ Plug 'sheerun/vim-polyglot' " Soporte para múltiples lenguajes
 Plug 'pangloss/vim-javascript' " Soporte para JavaScript en Vim
 Plug 'peitalin/vim-jsx-typescript' " Soporte para JSX y TypeScript en Vim
 Plug 'mlaursen/vim-react-snippets' " Snippets para React en Vim
+Plug 'lervag/vimtex'
+
 
 "++++++++++++++++++++++++++++++++++++"
 "	AUTOCOMPLETADO Y LSP
