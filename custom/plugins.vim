@@ -8,7 +8,7 @@ Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' } " Explorador de archivos i
 Plug 'preservim/tagbar' " Barra de Etiquetas para Vim
 Plug 'ryanoasis/vim-devicons' " Iconos para Vim
 Plug 'mhinz/vim-startify' " Interfaz de usuario moderna y personalizable en Vim
-
+Plug 'tribela/vim-transparent'
 "++++++++++++++++++++++++++++++++++++"	
 "	VISUALIZACION Y TEMAS
 "++++++++++++++++++++++++++++++++++++"
@@ -18,6 +18,8 @@ Plug 'xolox/vim-misc' " Complemento con varias funciones en Vim
 Plug 'segeljakt/vim-silicon' " Toma capturas de fragmentos de código
 Plug 'itchyny/lightline.vim' " Barra de estado ligera para Vim
 Plug 'yggdroot/indentline' " Indentación de líneas
+Plug 'roobert/tailwindcss-colorizer-cmp.nvim'
+Plug 'Valloric/YouCompleteMe'
 
 "++++++++++++++++++++++++++++++++++++"	
 "	EDICION Y PROGRAMACION
@@ -30,7 +32,7 @@ Plug 'peitalin/vim-jsx-typescript' " Soporte para JSX y TypeScript en Vim
 Plug 'mlaursen/vim-react-snippets' " Snippets para React en Vim
 Plug 'lervag/vimtex'
 
-
+Plug 'frenzyexists/aquarium-vim', { 'branch': 'develop' }
 "++++++++++++++++++++++++++++++++++++"
 "	AUTOCOMPLETADO Y LSP
 "++++++++++++++++++++++++++++++++++++"

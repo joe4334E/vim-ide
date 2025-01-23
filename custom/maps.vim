@@ -17,7 +17,8 @@ nnoremap <leader>p :NextColorScheme<CR>
 nnoremap <leader>n :PrevColorScheme<CR>
 
 " Pasar a un esquema de color aleatorio con <space>r
-nnoremap <leader>r :RandomColorScheme<CR>
+"nnoremap <leader>r :RandomColorScheme<CR>
+nnoremap <C-r> :RandomColorScheme<CR>
 
 let g:floaterm_keymap_new = '<leader>ft'
 let g:floaterm_keymap_toggle = '<leader>t'
