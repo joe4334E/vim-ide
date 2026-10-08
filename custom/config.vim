@@ -1,80 +1,44 @@
-" Author        : ale
-" Created       : 23/11/2024
-" License       : MIT
-" Description   : 
-" =============================================================================
-" INDENTLINE
-" =============================================================================
-let g:indentLine_char = '||'
-let g:indentLine_fileTypeExclude = ['startify']
-" let g:indentLine_setColors = 0
-" let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-" let g:indentLine_char = '·'
-" let g:indentLine_leadingSpaceEnabled = 1
-" let g:indentLine_leadingSpaceChar = '·'
+" Author: ale | 2024-11-23 | MIT
 
-" =============================================================================
-" COC
-"=============================================================================
-" https://raw.githubusercontent.com/neoclide/coc.nvim/master/coc-example.vim
+" ========== [0] WILDMENU — POPUP FLOTANTE EN : y / ==========
 
-" May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
-" utf-8 byte sequence
-"set encoding=utf-8
-" Some servers have issues with backup files, see #649
-"set nobackup
-"set nowritebackup
+set wildmenu
+set wildmode=longest:full,full
+set wildoptions=pum
 
-" Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
-" delays and poor user experience
-"set updatetime=300
+" ========== [1] COC — COMPLETADO Y NAVEGACIÓN ==========
 
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved
-"set signcolumn=yes
-
-" Use tab for trigger completion with characters ahead and navigate
-" NOTE: There's always complete item selected by default, you may want to enable
-" no select by `"suggest.noselect": true` in your configuration file
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-" Make <CR> to accept selected completion item or notify coc.nvim to format
-" <C-g>u breaks current undo, please make your own choice
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion
+
+
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-" GoTo code navigation
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Use K to show documentation in preview window
 nnoremap <silent> K :call ShowDocumentation()<CR>
-
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
@@ -83,46 +47,30 @@ function! ShowDocumentation()
   endif
 endfunction
 
-" Highlight the symbol and its references when holding the cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Symbol renaming
 nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
-  " Setup formatexpr specified filetype(s)
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-" Applying code actions to the selected code block
-" Example: `<leader>aap` for current paragraph
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap keys for applying code actions at the cursor position
 nmap <leader>ac  <Plug>(coc-codeaction-cursor)
-" Remap keys for apply code actions affect whole buffer
 nmap <leader>as  <Plug>(coc-codeaction-source)
-" Apply the most preferred quickfix action to fix diagnostic on the current line
 nmap <leader>qf  <Plug>(coc-fix-current)
 
-" Remap keys for applying refactor code actions
 nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
 xmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
 nmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
 
-" Run the Code Lens action on the current line
 nmap <leader>cl  <Plug>(coc-codelens-action)
 
-" Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server
 xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
@@ -132,7 +80,6 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-" Remap <C-f> and <C-b> to scroll float windows/popups
 nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
@@ -140,59 +87,78 @@ inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float
 vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 
-" Use CTRL-S for selections ranges
-" Requires 'textDocument/selectionRange' support of language server
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
-" Add `:Format` command to format current buffer
 command! -nargs=0 Format :call CocActionAsync('format')
-
-" Add `:Fold` command to fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-" Add `:OR` command for organize imports of the current buffer
 command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
 
-" Add (Neo)Vim's native statusline support
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" Mappings for CoCList
-" Show all diagnostics
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions
 nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-" Show commands
 nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-" =============================================================================
-" VIM-STARTIFY
-" =============================================================================
-" Configuración de Startify
+" ========== [2] COC EXTENSIONES ==========
+
+let g:coc_global_extensions = [
+      \ 'coc-snippets',
+      \ 'coc-html',
+      \ 'coc-css',
+      \ 'coc-json',
+      \ 'coc-emmet',
+      \ 'coc-tsserver',
+      \ 'coc-tailwindcss',
+      \ 'coc-prettier',
+      \ 'coc-eslint',
+      \ 'coc-dictionary',
+      \ 'coc-markdownlint',
+      \ ]
+
+" ========== [3] COC-DICTIONARY (español) DEPRECATED ==========
+
+let g:coc_dictionary_settings = {
+      \ 'filetypes': ['markdown', 'typst', 'text'],
+      \ 'dictionary': expand('~/.vim/custom/es-wordlist.txt'),
+      \ }
+
+" ========== [4] SPELL ESPAÑOL (.md/.typ/.txt) ==========
+
+augroup WritingMode
+  autocmd!
+  autocmd FileType markdown,typst,text setlocal spell spelllang=es,en
+  autocmd FileType markdown,typst,text setlocal wrap linebreak
+  autocmd FileType markdown,typst,text setlocal complete+=kspell
+augroup END
+
+" ========== [5] HISTORIAL Y UNDO ==========
+
+set history=1000
+set undofile
+set undodir=~/.vim/undodir
+if !isdirectory(&undodir)
+    call mkdir(&undodir, 'p')
+endif
+
+" ========== [6] STARTIFY ==========
+
 let g:startify_files_number = 8
 let g:startify_padding_left = 3
-let g:webdevicons_enable_startify = 1
+let g:webdevicons_enable_startify = 0
 let g:startify_session_delete_buffers = 1
 let g:startify_session_remove_lines = ['setlocal', 'winheight']
 let g:startify_session_sort = 1
 let g:startify_update_oldfiles = 1
 let g:startify_change_to_dir = 1
 let g:startify_fortune_use_unicode = 1
-let g:startify_session_sort = 1
+let g:startify_enable_special = 0
 
-" Configuración de bookmarks
 let g:startify_bookmarks = [
       \ { 'd': '~/Documentos/algoritmos'},
       \ { 'w': '~/APP'},
@@ -201,7 +167,6 @@ let g:startify_bookmarks = [
       \ { 'z': '~/.zshrc'}
       \ ]
 
-" Encabezado personalizado centrado
 let g:startify_custom_header = [
       \ '                               ██╗   ██╗      ██╗██████╗ ███████╗',
       \ '                               ██║   ██║      ██║██╔══██╗██╔════╝',
@@ -211,34 +176,15 @@ let g:startify_custom_header = [
       \ '                                 ╚═══╝        ╚═╝╚═════╝ ╚══════╝',
       \ ]
 
-"Función para formatear las entradas de Startify
-function! StartifyEntryFormat()
-  return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
-endfunction
-
-" Listas centradas en Startify
 let g:startify_lists = [
-      \ { 'type': 'bookmarks', 'header': [" <U+F02E> Bookmarks"] },
-      \ { 'type': 'files',     'header': [" <U+F15B> MRU Files"] },
-      \ { 'type': 'dir',       'header': [" <U+F07C> MRU Files in ". getcwd()] },
-      \ { 'type': 'commands',  'header': [" <U+F121> Commands"] },
+      \ { 'type': 'bookmarks', 'header': [" Marcadores"] },
+      \ { 'type': 'files',     'header': [" Recientes"] },
+      \ { 'type': 'dir',       'header': [" En directorio actual: ". getcwd()] },
+      \ { 'type': 'commands',  'header': [" Comandos"] },
       \ ]
 
-" Deshabilitar listas en Startify
-let g:startify_lists = []
+" ========== [7] SILICON ==========
 
-" Deshabilitar footer
-let g:startify_custom_footer = []
-
-" Deshabilitar elementos vacíos y 'quit' en Startify
-"let g:startify_enable_special = 0
-
-" No mostrar buffer vacío ni la opción de 'quit'
-"let g:startify_disable_at_vimenter = 1
-
-" =============================================================================
-" SILICON
-" =============================================================================
 let g:silicon = {
       \   'theme':              'Dracula',
       \   'font':               'Iosevka',
@@ -253,7 +199,58 @@ let g:silicon = {
       \   'line-number':        v:true,
       \   'round-corner':       v:true,
       \   'window-controls':    v:true,
-\ }
-
+      \ }
 let g:silicon['output'] = '~/Imágenes/code/silicon-{time:%Y-%m-%d-%H%M%S}.png'
 
+" ========== [8] VIM-ASTRO ==========
+
+let g:astro_typescript = 'enable'
+let g:astro_stylus = 'enable'
+
+" ========== [9] ULTISNIPS ==========
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" ========== [10] TYPST ==========
+
+function! TypstCompile()
+  silent execute '!typst compile %:p > /dev/null 2>&1 &'
+  redraw!
+endfunction
+
+function! TypstWatch()
+  execute 'FloatermNew --disposable --autoclose=1 --title=TypstWatch typst watch ' . expand('%:p')
+endfunction
+
+augroup TypstConfig
+  autocmd!
+  autocmd FileType typst nnoremap <buffer> <leader>tc :call TypstCompile()<CR>
+  autocmd FileType typst nnoremap <buffer> <leader>tw :call TypstWatch()<CR>
+  autocmd BufWritePost *.typ call TypstCompile()
+augroup END
+
+" ========== [11] ASTRO COC ==========
+
+function! s:setup_astro() abort
+  call coc#config('html.filetypes', ['astro', 'html', 'handlebars', 'htmldjango', 'blade'])
+  call coc#config('emmet.includeLanguages', {'astro': 'html'})
+  call coc#config('tailwindCSS.htmlLanguages', ['astro', 'blade', 'edge', 'eelixir', 'ejs', 'elixir', 'elm', 'erb', 'eruby', 'haml', 'handlebars', 'html', 'htmldjango', 'jade', 'leaf', 'markdown', 'njk', 'nunjucks', 'php', 'razor', 'slim', 'svelte', 'twig', 'vue'])
+  call coc#config('tailwindCSS.headwind.classRegex', {
+        \ 'astro': "\\bclass\\s*=\\s*[\"']([_a-zA-Z0-9\\s\\-\\:\\/]+)[\"']|\\bclass:list\\s*=\\s*[\"']([_a-zA-Z0-9\\s\\-\\:\\/]+)[\"']"
+        \ })
+endfunction
+autocmd VimEnter * call s:setup_astro()
+
+" ========== [12] FLOATERM ==========
+
+let g:floaterm_wintype = 'float'
+let g:floaterm_width = 0.85
+let g:floaterm_height = 0.7
+let g:floaterm_position = 'center'
+let g:floaterm_autoclose = 1
+let g:floaterm_autoinsert = 1
+let g:floaterm_title = ''
+let g:floaterm_borderchars = '─│─│╭╮╰╯'
+let g:floaterm_autohide = 1

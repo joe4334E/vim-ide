@@ -1,28 +1,42 @@
-"Configurar la tecla de espacio como líder
 let mapleader = "\<Space>"
 
+"A-GENERAL
 nnoremap <C-s> :w<CR>
 nnoremap <C-q> :q<CR>
+nnoremap <leader>ai :execute "normal! mzgg=G'z"<CR>
 
-
+"B-NAVEGACION
 nnoremap <C-p> :FZF<CR>
-" Abrir y cerrar NERDTree con <space>e
+nnoremap <C-b> :Buffers<CR>
+nnoremap <C-f> :Ag<CR>
 nnoremap <leader>e :NERDTreeToggle<CR>
-" Abrir y cerrar TAGBAR con <space>a
-nnoremap <leader>a :TagbarToggle<CR>
-" Pasar al siguiente esquema de color con <space>p
-nnoremap <leader>p :NextColorScheme<CR>
 
-" Pasar al esquema de color anterior con <space>n
-nnoremap <leader>n :PrevColorScheme<CR>
+"C-COLORES
+nnoremap <leader>p  :NextColorScheme<CR>
+nnoremap <leader>n  :PrevColorScheme<CR>
+nnoremap <C-r>      :RandomColorScheme<CR>
+nnoremap <C-c>      :Colors<CR>
 
-" Pasar a un esquema de color aleatorio con <space>r
-"nnoremap <leader>r :RandomColorScheme<CR>
-nnoremap <C-r> :RandomColorScheme<CR>
+"D-GOYO
+nnoremap <leader>g  :Goyo<CR>
 
-let g:floaterm_keymap_new = '<leader>ft'
-let g:floaterm_keymap_toggle = '<leader>t'
+"E-TERMINAL
+nnoremap <leader>t :FloatermToggle<CR>
+nnoremap <C-t> :FloatermToggle<CR>
+tnoremap <leader>t <C-\><C-n>:FloatermToggle<CR>
+tnoremap <Esc> <C-\><C-n>
+nnoremap <leader>sP :FloatermNew --autoclose=0 presenterm -xX %<CR>
 
+"F-NAVEGACION VENTANAS
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
-" Pasar a modo editor de tablas en makdown con '<space>y'
-nnoremap <leader>y :TableModeEnable<CR>
+"G-SPLITS
+nnoremap <leader>sv :vsplit<CR>
+nnoremap <leader>sh :split<CR>
+nnoremap <leader>sd :close<CR>
+
+"J-markdown preview
+nnoremap <leader>mp :MarkdownPreview<CR>
